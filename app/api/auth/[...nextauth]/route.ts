@@ -13,9 +13,15 @@ const handler = auth as unknown as (
 ) => Response | Promise<Response>;
 
 export async function GET(request: Request): Promise<Response> {
+  try {
+    console.log("[auth-route] GET", request.url);
+  } catch (e) {}
   return handler(request);
 }
 
 export async function POST(request: Request): Promise<Response> {
+  try {
+    console.log("[auth-route] POST", request.url);
+  } catch (e) {}
   return handler(request);
 }
