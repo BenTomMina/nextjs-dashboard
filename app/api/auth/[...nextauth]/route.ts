@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
-import { authConfig } from "@/auth.config"; // adjust path if needed
+import { authConfig } from "../../../../auth.config"; // adjust path if needed
 
-const { handlers } = NextAuth(authConfig);
+const authHandler = NextAuth(authConfig) as any;
 
-export const { GET, POST } = handlers;
+export const GET = authHandler.GET;
+export const POST = authHandler.POST;
